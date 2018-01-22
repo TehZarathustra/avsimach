@@ -1,14 +1,4 @@
-# Clean project-stub
-
-- Boilerplate HTML sctructure
-- Components
-- Dev server
-- Hot Module Replacement
-- Sass
-- Postcss
-- ES2015
-
-Requires Yarn
+# Avsimach web
 
 # Quick start
 ```
