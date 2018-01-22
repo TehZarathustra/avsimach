@@ -1,0 +1,37 @@
+{
+  "name": "boilerplate-gulp-sass",
+  "version": "1.0.0",
+  "repository": "git@github.com:TehZarathustra/boilerplate-gulp-sass.git",
+  "author": "v-prusakov <v-prusakov@yandex-team.ru>",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "start": "webpack-dev-server"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.1",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.5.2",
+    "css-loader": "^0.28.4",
+    "file-loader": "^0.11.2",
+    "html-webpack-plugin": "^2.29.0",
+    "node-sass": "^4.5.3",
+    "postcss-cssnext": "^2.11.0",
+    "postcss-import": "^10.0.0",
+    "postcss-loader": "^2.0.6",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "vue-loader": "^12.2.2",
+    "webpack": "^3.0.0",
+    "webpack-dev-server": "^2.5.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "normalize.css": "^7.0.0",
+    "vue": "^2.4.1",
+    "vue-template-compiler": "^2.4.1",
+    "vue-router": "^2.7.0",
+    "vuex": "^3.0.1"
+  }
+}
