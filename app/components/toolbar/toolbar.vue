@@ -9,7 +9,11 @@
 			<v-icon class="ml-3">fa-fighter-jet</v-icon>
 		</v-toolbar-title>
 		<v-layout row align-center style="max-width: 650px">
-			Грядущая миссия 1 февраля в 15:00 по мск
+			<div class="headline">Миссия 1: Очень странные дела
+				<v-chip label text-color="">
+					<v-icon left>label</v-icon>В процессе
+				</v-chip>
+			</div>
 		</v-layout>
 	</v-toolbar>
 </template>
