@@ -15,7 +15,7 @@ module.exports = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			title: 'title',
+			title: 'Avsimach',
 			template: './app/index.ejs'
 		}),
 

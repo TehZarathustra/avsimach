@@ -29,9 +29,13 @@
   "dependencies": {
     "lodash": "^4.17.4",
     "normalize.css": "^7.0.0",
+    "moment": "^2.19.2",
     "vue": "^2.4.1",
     "vue-template-compiler": "^2.4.1",
     "vue-router": "^2.7.0",
+    "vuefire": "^1.4.3",
+    "vuetify": "^0.17.6",
+    "font-awesome": "^4.7.0",
     "vuex": "^3.0.1"
   }
 }

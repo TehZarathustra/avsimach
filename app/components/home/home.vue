@@ -32,7 +32,9 @@ export default {
 	.home
 		padding: 30px
 		background: lightblue
-		width: 800px
 		margin: 20px auto
+		max-width: 800px
 		text-align: center
+	img
+		width: 100%
 </style>
