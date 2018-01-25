@@ -6,7 +6,7 @@
 		:class="$vuetify.breakpoint.width <= 1264 && 'pr-3'"
 		>
 			<v-toolbar-side-icon @click.stop="toggleDrawer()"></v-toolbar-side-icon>
-			<v-icon class="ml-3">fa-fighter-jet</v-icon>
+			<span class="title">Avsimach</span>
 		</v-toolbar-title>
 		<v-layout row align-center style="max-width: 650px">
 			<div class="headline">Миссия 1: Очень странные дела
