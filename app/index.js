@@ -11,6 +11,7 @@ import '../node_modules/vuetify/dist/vuetify.min.css';
 // components
 import Drawer from './components/drawer/drawer.vue';
 import Toolbar from './components/toolbar/toolbar.vue';
+import Alert from './components/alert/alert.vue';
 
 Vue.use(Vuetify);
 Vue.use(VueFire);
@@ -21,7 +22,8 @@ new Vue({
 	store,
 	components: {
 		'main-drawer': Drawer,
-		'main-toolbar': Toolbar
+		'main-toolbar': Toolbar,
+		'alert-component': Alert
 	},
 	created () {
 		Firebase.initializeApp({
@@ -33,10 +35,10 @@ new Vue({
 			messagingSenderId: "442287453798"
 		});
 
-		// Firebase.auth().onAuthStateChanged((user) => {
-		// 	if (user) {
-		// 		this.$store.dispatch('autoSignIn', user);
-		// 	}
-		// });
+		Firebase.auth().onAuthStateChanged(user => {
+			if (user) {
+				this.$store.dispatch('autoSignIn', user);
+			}
+		});
 	}
 });
