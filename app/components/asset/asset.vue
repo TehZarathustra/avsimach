@@ -1,30 +1,51 @@
 <template>
 	<div class="asset" :title="title">
-		<v-badge overlap color="black">
-      <span slot="badge">{{count}}</span>
+		<v-badge overlap color="black" v-if="loaded">
+      <span slot="badge">{{asset.count}}</span>
       <v-avatar
         class="white"
       >
         <img :src="image" :alt="title">
       </v-avatar>
     </v-badge>
+    <v-badge overlap color="black" v-else>
+      <v-avatar
+        class="white"
+      >
+      	<v-progress-circular indeterminate v-bind:size="40" color="primary"></v-progress-circular>
+      </v-avatar>
+    </v-badge>
 	</div>
 </template>
 
 <script>
-const IMAGES = {
-	'Su-25': 'https://firebasestorage.googleapis.com/v0/b/avsimach.appspot.com/o/su25icon.png?alt=media&token=66a8d62d-1f85-4401-8e0b-9019473e74d3',
-	'Su-25T': 'https://firebasestorage.googleapis.com/v0/b/avsimach.appspot.com/o/su25icon.png?alt=media&token=66a8d62d-1f85-4401-8e0b-9019473e74d3',
-	'AV-8B': 'https://firebasestorage.googleapis.com/v0/b/avsimach.appspot.com/o/av8bicon.png?alt=media&token=8578dc8b-0eda-4dd7-a431-3517f01b7c45',
-	'MiG-21': 'https://firebasestorage.googleapis.com/v0/b/avsimach.appspot.com/o/mig21bisicon.png?alt=media&token=ad34d2c8-c693-4b77-b8a9-7576a0b8d62e'
-};
+import Firebase from 'firebase';
 
 export default {
+	firebase ()  {
+		return {
+			assets: {
+				source: Firebase.database().ref('assets'),
+				readyCallback: function () {
+					this.loaded = true;
+				}
+			}
+		}
+	},
 	data () {
 		return {
-			title: this.asset.image,
-			image: IMAGES[this.asset.image],
-			count: this.asset.count
+			loaded: false
+		}
+	},
+	computed: {
+		assetItem () {
+			return this.loaded && this.assets.find(item => this.asset.name === item.name);
+		},
+		title () {
+			return this.assetItem && this.assetItem.name;
+		},
+		image () {
+			return this.assetItem && this.assetItem.url;
 		}
 	},
 	props: ['asset']

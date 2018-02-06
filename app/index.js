@@ -4,6 +4,7 @@ import router from './routes';
 import {store} from './store';
 import Vuetify from 'vuetify';
 import 'font-awesome/css/font-awesome.css';
+import Firebase from 'firebase';
 import VueFire from 'vuefire';
 import '../node_modules/vuetify/dist/vuetify.min.css';
 
@@ -21,5 +22,21 @@ new Vue({
 	components: {
 		'main-drawer': Drawer,
 		'main-toolbar': Toolbar
+	},
+	created () {
+		Firebase.initializeApp({
+			apiKey: "AIzaSyCtRWInttCqiz7d_b2nxRXYaTnPG4Sjw50",
+			authDomain: "avsimach.firebaseapp.com",
+			databaseURL: "https://avsimach.firebaseio.com",
+			projectId: "avsimach",
+			storageBucket: "avsimach.appspot.com",
+			messagingSenderId: "442287453798"
+		});
+
+		// Firebase.auth().onAuthStateChanged((user) => {
+		// 	if (user) {
+		// 		this.$store.dispatch('autoSignIn', user);
+		// 	}
+		// });
 	}
 });
