@@ -17,7 +17,7 @@
 		</div>
 		<v-dialog v-model="dialog" max-width="380">
       <v-card>
-        <v-card-title class="headline">Стать {{type === 'red' ? 'Красным' : 'Синяком'}}?</v-card-title>
+        <v-card-title class="headline card__headline">За {{type === 'red' ? 'Красных' : 'Синих'}}?</v-card-title>
         <div class="card__image" v-if="type === 'red'">
         	<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Communist_star.svg/2000px-Communist_star.svg.png" alt="">
         </div>
@@ -70,6 +70,7 @@ export default {
 	&__task-wrapper
 		color: #fff
 		font-size: 24px
+		margin-bottom: 20px
 	&__start
 		margin-top: 20px
 		margin-bottom: 20px
@@ -85,6 +86,9 @@ export default {
 	&__asset
 		display: inline-block
 		margin-right: 10px
+	&__headline
+		display: block
+		text-align: center
 	&_red
 		background-color: #F52323
 	&_blue
