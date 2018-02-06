@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
 	state: {
-		drawer: true
+		drawer: false
 	},
 	getters: {
 		drawer (state) {
