@@ -2,7 +2,7 @@
 	<v-navigation-drawer
 	fixed
 	:clipped="$vuetify.breakpoint.width > 1264"
-	:value="computedDrawer"
+	:value="computedDrawer === true"
 	app
 	>
 		<v-list>

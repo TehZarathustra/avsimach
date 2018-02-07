@@ -13,7 +13,8 @@
 		</div>
 		</div>
 		<div class="card__button">
-			<v-btn @click.native.stop="dialog = true" block>{{buttonLabel}}</v-btn>
+			<v-btn :disabled="!isUserAuthenticated || (user.team && user.team !== type)"
+				@click="assign()" block>{{buttonLabel}}</v-btn>
 		</div>
 		<v-dialog v-model="dialog" max-width="380">
       <v-card>
@@ -24,11 +25,11 @@
         <div class="card__image" v-else>
         	<img src="https://i.imgur.com/MRr0qik.png" alt="">
         </div>
-        <v-card-text>Соглашаясь, ты становишься прикреплен к {{type === 'red' ? 'Красным' : 'Синим'}} до окончания кампании</v-card-text>
+        <v-card-text>Вступая, ты будешь играть за {{type === 'red' ? 'Красных' : 'Синих'}} до окончания кампании</v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn :color="type" flat="flat" @click.native="dialog = false">Подумать</v-btn>
-          <v-btn :color="type" flat="flat" @click.native="dialog = false">Вступить</v-btn>
+          <v-btn :color="type" :loading="loadingAssign" flat="flat" @click.native="assignTeam()">Вступить</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -37,6 +38,7 @@
 
 <script>
 import Asset from '../../asset/asset.vue';
+import Firebase from 'firebase';
 
 export default {
 	data () {
@@ -45,10 +47,54 @@ export default {
 			missionTask: this.task.task,
 			start: this.task.startCondition,
 			buttonLabel: this.task.button,
+			loadingAssign: false,
 			typeClasses: {
 				card_red: this.type === 'red',
 				card_blue: this.type === 'blue'
 			}
+		}
+	},
+	methods: {
+		assign () {
+			if (this.user && this.user.team === this.type) {
+				this.$router.push({path: '/campaigns/turkish_frontier/1'});
+			} else {
+				this.dialog = true;
+			}
+		},
+		assignTeam () {
+			this.loadingAssign = true;
+
+			Firebase.database().ref('users').child(this.user.uid).update({
+				team: this.type
+			})
+			.then(() => {
+				const message = this.type === 'red'
+					? 'Служу Советскому Союзу'
+					: 'Fuck yeah!';
+
+				this.$store.dispatch('autoSignIn', {uid: this.user.uid});
+				this.dialog = false;
+				this.loadingAssign = false;
+
+				setTimeout(() => {
+					this.$store
+						.commit('setAlert', {type: this.type, message: message});
+				}, 1000);
+			})
+			.catch(error => {
+				this.loadingAssign = false;
+				this.$store
+					.commit('setAlert', {type: 'error', message: error.message});
+			})
+		}
+	},
+	computed: {
+		user () {
+			return this.$store.getters.user;
+		},
+		isUserAuthenticated () {
+			return Boolean(this.user);
 		}
 	},
 	props: ['type', 'task'],

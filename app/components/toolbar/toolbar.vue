@@ -6,7 +6,7 @@
 		:class="$vuetify.breakpoint.width <= 1264 && 'pr-3'"
 		>
 			<v-toolbar-side-icon @click.stop="toggleDrawer()"></v-toolbar-side-icon>
-			<span class="title">Avsimach</span>
+			<span class="title"><a href="/#/">Avsimach</a></span>
 		</v-toolbar-title>
     <v-spacer></v-spacer>
     <div v-if="isUserAuthenticated">
