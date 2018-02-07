@@ -34,16 +34,19 @@ export const store = new Vuex.Store({
 	},
 	actions: {
 		autoSignIn ({commit}, payload) {
-			commit('setUser', {id: payload.uid});
+			firebase.database().ref('users').child(payload.uid)
+				.once('value', snapshot => {
+					commit('setUser', Object.assign(snapshot.val(), {uid: payload.uid}));
+				});
 		},
 		signUserIn ({commit}, payload) {
 			return firebase.auth().signInWithEmailAndPassword(payload.email, payload.password)
-				.then(user => {
-					const newUser = {
-						id: user.uid
-					}
-
-					commit('setUser', newUser);
+				.then(user => user.uid)
+				.then(uid => {
+					firebase.database().ref('users').child(uid)
+						.once('value', snapshot => {
+							commit('setUser', Object.assign(snapshot.val(), {uid: uid}));
+						});
 				})
 				.catch(error => {
 					commit('setAlert', {type: 'error', message: error.message});
