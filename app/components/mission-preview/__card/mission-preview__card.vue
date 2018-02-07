@@ -20,10 +20,10 @@
       <v-card>
         <v-card-title class="headline card__headline">За {{type === 'red' ? 'Красных' : 'Синих'}}?</v-card-title>
         <div class="card__image" v-if="type === 'red'">
-        	<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Communist_star.svg/2000px-Communist_star.svg.png" alt="">
+        	<img :src="redLogo" alt="">
         </div>
         <div class="card__image" v-else>
-        	<img src="https://i.imgur.com/MRr0qik.png" alt="">
+        	<img :src="blueLogo" alt="">
         </div>
         <v-card-text>Вступая, ты будешь играть за {{type === 'red' ? 'Красных' : 'Синих'}} до окончания кампании</v-card-text>
         <v-card-actions>
@@ -39,6 +39,8 @@
 <script>
 import Asset from '../../asset/asset.vue';
 import Firebase from 'firebase';
+import blueLogo from '../../../blue_original.png';
+import redLogo from '../../../red_star.png';
 
 export default {
 	data () {
@@ -47,6 +49,8 @@ export default {
 			missionTask: this.task.task,
 			start: this.task.startCondition,
 			buttonLabel: this.task.button,
+			blueLogo: blueLogo,
+			redLogo: redLogo,
 			loadingAssign: false,
 			typeClasses: {
 				card_red: this.type === 'red',
@@ -70,7 +74,7 @@ export default {
 			})
 			.then(() => {
 				const message = this.type === 'red'
-					? 'Служу Советскому Союзу'
+					? 'Служу Советскому Союзу!'
 					: 'Fuck yeah!';
 
 				this.$store.dispatch('autoSignIn', {uid: this.user.uid});
@@ -80,7 +84,7 @@ export default {
 				setTimeout(() => {
 					this.$store
 						.commit('setAlert', {type: this.type, message: message});
-				}, 1000);
+				}, 500);
 			})
 			.catch(error => {
 				this.loadingAssign = false;

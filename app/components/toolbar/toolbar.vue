@@ -1,5 +1,5 @@
 <template>
-	<v-toolbar dense fixed clipped-left app>
+	<v-toolbar dense fixed clipped-left :dark="(user && user.team)" :color="(user && user.team)" :class="userTeam" app>
 		<v-toolbar-title
 		:style="$vuetify.breakpoint.width > 1264 && 'width: 300px'"
 		class="ml-0 pl-3"
@@ -96,6 +96,12 @@ export default {
 		},
 		isUserAuthenticated () {
 			return Boolean(this.user);
+		},
+		userTeam () {
+			return this.user && {
+				toolbar_red: this.user.team === 'red',
+				toolbar_blue: this.user.team === 'blue'
+			}
 		}
 	},
 	methods: {
@@ -160,4 +166,37 @@ export default {
 		margin-bottom: 10px
 .headline-form
 	margin-bottom: 20px
+.title a
+	color: #000
+	font-weight: bold
+	position: relative
+	top: 2px
+	text-decoration: none
+.toolbar_red, .toolbar_blue
+	.title a
+		color: #fff
+.toolbar_red .title:before
+	content: ''
+	display: inline-block
+	position: relative
+	top: 8px
+	margin-right: 5px
+	width: 30px
+	height: 30px
+	background-image: url(../../red_black.png)
+	background-size: 100%
+	background-repeat: no-repeat
+	filter: invert(100%)
+.toolbar_blue .title:before
+	content: ''
+	display: inline-block
+	position: relative
+	top: 10px
+	margin-right: 5px
+	width: 30px
+	height: 30px
+	background-image: url(../../blue_black.png)
+	background-repeat: no-repeat
+	background-size: 100%
+	filter: invert(100%)
 </style>
