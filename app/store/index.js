@@ -8,7 +8,8 @@ export const store = new Vuex.Store({
 	state: {
 		drawer: false,
 		user: null,
-		alert: null
+		alert: null,
+		showSignIn: false
 	},
 	getters: {
 		drawer (state) {
@@ -19,6 +20,9 @@ export const store = new Vuex.Store({
 		},
 		user (state) {
 			return state.user;
+		},
+		showSignIn (state) {
+			return state.showSignIn;
 		}
 	},
 	mutations: {
@@ -30,9 +34,19 @@ export const store = new Vuex.Store({
 		},
 		setAlert (state, payload) {
 			state.alert = payload;
+		},
+		setSignIn (state, payload) {
+			state.showSignIn = payload;
 		}
 	},
 	actions: {
+		showSignIn({commit}, payload) {
+			commit('setSignIn', payload);
+
+			setTimeout(() => {
+				commit('setSignIn', false);
+			}, 1000);
+		},
 		autoSignIn ({commit}, payload) {
 			firebase.database().ref('users').child(payload.uid)
 				.once('value', snapshot => {

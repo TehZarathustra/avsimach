@@ -36,7 +36,7 @@
 						prepend-icon="crop_original"
 						></v-text-field>
       			<v-btn flat color="secondary"
-      				@click="profileForm = false; newAvatar = null">Отмена</v-btn>
+							@click="signInForm = false; newAvatar = null">Отмена</v-btn>
 	          <v-btn flat color="primary" :loading="loadingProfile" type="submit">Сохранить</v-btn>
 	     </form>
 	    </v-dialog>
@@ -48,6 +48,9 @@
     <!-- sign in form start -->
     <v-dialog v-model="signInForm" max-width="280px" v-if="!isUserAuthenticated">
     	<v-btn flat slot="activator">Войти</v-btn>
+			<v-toolbar dark color="primary">
+				<v-toolbar-title class="white--text">Надо залогиниться</v-toolbar-title>
+			</v-toolbar>
       <form @submit.prevent.stop="signIn" class="form-signin" role="form">
 					<v-text-field
 					name="email"
@@ -80,7 +83,7 @@ import Firebase from 'firebase';
 export default {
 	data() {
 		return {
-			signInForm: false,
+			signInForm: this.showSignIn,
 			profileForm: false,
 			newAvatar: null,
 			drawer: this.$store.getters.drawer,
@@ -88,6 +91,13 @@ export default {
 			password: null,
 			loadingSignIn: false,
 			loadingProfile: false
+		}
+	},
+	watch: {
+		showSignIn() {
+			if (this.showSignIn) {
+				this.signInForm = true;
+			}
 		}
 	},
 	computed: {
@@ -102,6 +112,9 @@ export default {
 				toolbar_red: this.user.team === 'red',
 				toolbar_blue: this.user.team === 'blue'
 			}
+		},
+		showSignIn () {
+			return this.$store.getters.showSignIn;
 		}
 	},
 	methods: {

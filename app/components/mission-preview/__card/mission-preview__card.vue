@@ -13,7 +13,7 @@
 		</div>
 		</div>
 		<div class="card__button">
-			<v-btn :disabled="!isUserAuthenticated || (user.team && user.team !== type)"
+			<v-btn :disabled="user && (user.team && user.team !== type)"
 				@click="assign()" block>{{buttonLabel}}</v-btn>
 		</div>
 		<v-dialog v-model="dialog" max-width="380">
@@ -62,6 +62,8 @@ export default {
 		assign () {
 			if (this.user && this.user.team === this.type) {
 				this.$router.push({path: '/campaigns/turkish_frontier/1'});
+			} else if (!this.isUserAuthenticated) {
+				this.$store.dispatch('showSignIn', true);
 			} else {
 				this.dialog = true;
 			}
