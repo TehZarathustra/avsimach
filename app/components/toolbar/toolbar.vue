@@ -148,7 +148,7 @@ export default {
 				.dispatch('signUserIn', {email: this.email, password: this.password})
 				.then(data => {
 					if (data === 'error') {
-						this.loading = false;
+						this.loadingSignIn = false;
 					} else {
 						this.email = null,
 						this.loadingSignIn = false;
