@@ -1,5 +1,5 @@
 <template>
-	<v-toolbar dense fixed clipped-left :dark="(user && user.team)" :color="(user && user.team)" :class="userTeam" app>
+	<v-toolbar dense fixed clipped-left :dark="Boolean(user && user.team)" :color="(user && user.team)" :class="userTeam" app>
 		<v-toolbar-title
 		:style="$vuetify.breakpoint.width > 1264 && 'width: 300px'"
 		class="ml-0 pl-3"
@@ -36,7 +36,7 @@
 						prepend-icon="crop_original"
 						></v-text-field>
       			<v-btn flat color="secondary"
-							@click="signInForm = false; newAvatar = null">Отмена</v-btn>
+							@click="profileForm = false; newAvatar = null">Отмена</v-btn>
 	          <v-btn flat color="primary" :loading="loadingProfile" type="submit">Сохранить</v-btn>
 	     </form>
 	    </v-dialog>
@@ -49,7 +49,7 @@
     <v-dialog v-model="signInForm" max-width="280px" v-if="!isUserAuthenticated">
     	<v-btn flat slot="activator">Войти</v-btn>
 			<v-toolbar dark color="primary">
-				<v-toolbar-title class="white--text">Надо залогиниться</v-toolbar-title>
+				<v-toolbar-title class="white--text">Авторизация</v-toolbar-title>
 			</v-toolbar>
       <form @submit.prevent.stop="signIn" class="form-signin" role="form">
 					<v-text-field
@@ -122,6 +122,12 @@ export default {
 			this.$store.dispatch('toggleDrawer');
 		},
 		saveProfile () {
+			if (!this.newAvatar) {
+				this.$store
+					.commit('setAlert', {type: 'error', message: 'Поле не может быть пустым'});
+				return;
+			}
+
 			this.loadingProfile = true;
 
 			Firebase.database().ref('users').child(this.user.uid).update({
@@ -133,6 +139,7 @@ export default {
 				this.$store.dispatch('autoSignIn', {uid: this.user.uid});
 
 				this.loadingProfile = false;
+				this.profileForm = false;
 			})
 			.catch(error => {
 				this.loadingProfile = false;
