@@ -33,13 +33,14 @@
 					</div>
 				</div>
 			</div>
-
 			{{flights}}
 			<!-- flights -->
 			<div class="mission__flights">
 				<flight v-for="(flight, index) in flights"
 					:data="flight"
+					:team="userTeam"
 					:order="index"
+					:flightKey="flight['.key']"
 					:key="index"></flight>
 			</div>
 		</div>

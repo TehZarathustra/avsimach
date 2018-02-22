@@ -1,7 +1,7 @@
 <template>
 	<div class="flight">
 		<div class="flight__title">
-			<v-toolbar dark color="red">
+			<v-toolbar dark :color="team">
 				<v-toolbar-title>{{`Звено ${order + 1}, ${data.role}`}}</v-toolbar-title>
 			</v-toolbar>
 		</div>
@@ -14,12 +14,14 @@
 					<div class="flight__players-head-item">Вооружение</div>
 				</div>
 				<v-divider></v-divider>
-
 				<div class="flight__players-items" v-for="player, index in data.slots">
 					<div class="flight__players-item">{{index + 1}}
 						<asset :asset="{name: player.craft}" size="30"></asset>
 					</div>
-					<div class="flight__players-item"><v-btn small block>Занять</v-btn></div>
+					<div class="flight__players-item">
+						<v-btn small block @click="takeSlot(index)"
+							:disabled="Boolean(player.taken)">{{player.taken || 'Занять'}}</v-btn>
+					</div>
 					<div class="flight__players-item flight__players-item_weaponry">{{player.weapons}}</div>
 				</div>
 			</div>
@@ -61,12 +63,85 @@
 
 <script>
 import asset from '../asset/asset.vue';
+import Firebase from 'firebase';
 
 export default {
 	components: {
 		asset
 	},
-	props: ['data', 'order']
+	computed: {
+		user () {
+			return this.$store.getters.user;
+		},
+		userName () {
+			return this.user && this.user.name;
+		}
+	},
+	methods: {
+		clearPlayer () {
+			let toDeleteFrom = [];
+
+			return Firebase.database().ref('flights')
+				.once('value', snapshot => snapshot)
+				.then(snapshot => {
+					const values = snapshot.val();
+
+					values.forEach((outerItem, outerIndex) => {
+
+						outerItem.slots.forEach((item, index) => {
+							if (item.taken === this.userName) {
+								toDeleteFrom.push({flight: outerIndex, index, outerItem});
+							}
+						});
+
+					});
+
+					return toDeleteFrom;
+				})
+				.then((toDeleteFrom) => {
+					if (!toDeleteFrom.length) {
+						return;
+					}
+
+					const updateQuery = toDeleteFrom.reduce((result, item) => {
+						result[item.flight] = Object.assign(
+							item.outerItem,
+							{slots: item.outerItem.slots.map((innerItem, index) => {
+									if (item.index === index) {
+										innerItem = {
+											craft: innerItem.craft,
+											weapons: innerItem.weapons
+										};
+									}
+
+									return innerItem;
+								})
+							}
+						);
+
+						return result;
+					}, {});
+
+					return Firebase.database().ref('flights').update(updateQuery);
+				});
+		},
+		takeSlot (itemIndex) {
+			this.clearPlayer().then(() => {
+				const newSlotsData = this.data.slots.map((item, index) => {
+					if (index === itemIndex) {
+						item.taken = this.userName;
+					}
+
+					return item;
+				});
+
+				Firebase.database().ref('flights').child(this.flightKey).update({
+					slots: newSlotsData
+				});
+			});
+		}
+	},
+	props: ['data', 'order', 'team', 'flightKey']
 };
 </script>
 
