@@ -2,7 +2,7 @@
 	<div class="flight">
 		<div class="flight__title">
 			<v-toolbar dark color="red">
-				<v-toolbar-title>{{`Звено ${order + 1}, ${data.title}`}}</v-toolbar-title>
+				<v-toolbar-title>{{`Звено ${order + 1}, ${data.role}`}}</v-toolbar-title>
 			</v-toolbar>
 		</div>
 		<div class="flight__content">
@@ -17,10 +17,10 @@
 
 				<div class="flight__players-items" v-for="player, index in data.slots">
 					<div class="flight__players-item">{{index + 1}}
-						<asset :asset="{name: player.asset}" size="30"></asset>
+						<asset :asset="{name: player.craft}" size="30"></asset>
 					</div>
 					<div class="flight__players-item"><v-btn small block>Занять</v-btn></div>
-					<div class="flight__players-item flight__players-item_weaponry">{{player.loadout}}</div>
+					<div class="flight__players-item flight__players-item_weaponry">{{player.weapons}}</div>
 				</div>
 			</div>
 			<!-- /players -->
@@ -29,30 +29,30 @@
 			<div class="flight__task">
 				<div class="flight__task-title">Задание:</div>
 				<v-divider></v-divider>
-				<div class="flight__task-content">{{data.task}}</div>
+				<div class="flight__task-content">{{data.description}}</div>
 			</div>
 			<!-- /task -->
 			<div class="flight__more">
 				<v-expansion-panel expand>
 					<v-expansion-panel-content>
-		      <div slot="header" class="flight__more-title">Карта, маршрут и подробности</div>
-		      <v-divider></v-divider>
-		      <div class="flight__info-wrapper">
-		      	<div class="flight__info">
-		      		<v-icon>alarm</v-icon>
-		      		<span>Важно соблюдать тайминги на ППМ 3</span>
-		      	</div>
-		      	<div class="flight__info-warning">
-		      		<v-icon>warning</v-icon>
-		      		<span>Каждый потерянный Су-25Т не восполняется и впоследствии заменятся на Су-25 обычный, берегите свои машины</span>
-		      	</div>
-		      </div>
-		      <div class="flight__map">
-						<div class="flight__map-image">
-							<img src="https://www.mudspike.com/wp-content/uploads/2015/10/FLAG-003.jpg" alt="">
+					<div slot="header" class="flight__more-title">Карта, маршрут и подробности</div>
+					<v-divider></v-divider>
+					<div class="flight__info-wrapper">
+						<div class="flight__info" v-if="data.alert">
+							<v-icon>alarm</v-icon>
+							<span>{{data.alert}}</span>
+						</div>
+						<div class="flight__info-warning" v-if="data.warning">
+							<v-icon>warning</v-icon>
+							<span>{{data.warning}}</span>
 						</div>
 					</div>
-		    	</v-expansion-panel-content>
+					<div class="flight__map">
+						<div class="flight__map-image">
+							<img :src="data.map" alt="карта">
+						</div>
+					</div>
+					</v-expansion-panel-content>
 				</v-expansion-panel>
 			</div>
 		</div>
@@ -130,6 +130,8 @@ export default {
 	&__info
 		&-wrapper
 			padding: 5px
+			i
+				font-size: 25px
 		&-warning
 			margin-top: 10px
 </style>
