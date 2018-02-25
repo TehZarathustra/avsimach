@@ -52,7 +52,7 @@ export default {
 	background-position: 100% 0
 	&__date
 		font-size: 44px
-		font-weight: bold
+		font-weight: 800
 	&__campaign
 		font-size: 34px
 	&__row
@@ -62,15 +62,15 @@ export default {
 		margin-bottom: 50px
 	&__mission
 		background-color: #FFDC3C
-		padding: 5px 10px
+		padding: 5px 20px
 		font-size: 16px
-		border-radius: 10px
+		border-radius: 20px
 		margin-right: 10px
 	&__length
-		font-weight: bold
+		font-weight: 800
 		font-size: 22px
 	&__description
-		font-size: 24px
+		font-size: 20px
 		max-width: 600px
 	&__assign-wrapper
 		margin-top: 20px

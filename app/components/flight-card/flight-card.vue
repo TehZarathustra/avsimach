@@ -1,7 +1,7 @@
 <template>
 	<div class="flight">
 		<div class="flight__title">
-			<v-toolbar dark :color="team">
+			<v-toolbar flat dark :color="team">
 				<v-toolbar-title>{{`Звено ${order + 1}, ${data.role}`}}</v-toolbar-title>
 			</v-toolbar>
 		</div>

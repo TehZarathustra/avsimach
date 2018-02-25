@@ -2,7 +2,7 @@
 	<div class="card" v-bind:class="typeClasses">
 		<div class="card__task-wrapper">
 		<div class="card__task">
-			<b>Задача {{type === 'red' ? 'Красных' : 'Синих'}}:</b>
+			<b>Задача {{type === 'red' ? 'Красных' : 'Синих'}}</b>
 			<br/>{{missionTask}}
 		</div>
 		<div class="card__start">{{start}}</div>
@@ -121,7 +121,7 @@ export default {
 		line-height: 30px
 	&__task-wrapper
 		color: #fff
-		font-size: 24px
+		font-size: 20px
 		margin-bottom: 20px
 	&__start
 		margin-top: 20px

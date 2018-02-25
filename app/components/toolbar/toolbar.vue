@@ -1,5 +1,7 @@
 <template>
-	<v-toolbar dense fixed clipped-left :dark="Boolean(user && user.team)" :color="(user && user.team)" :class="userTeam" app>
+	<v-toolbar dense fixed flat clipped-left :dark="Boolean(user && user.team)"
+		:color="(user && user.team)"
+		:class="userTeam" app>
 		<v-toolbar-title
 		:style="$vuetify.breakpoint.width > 1264 && 'width: 300px'"
 		class="ml-0 pl-3"
