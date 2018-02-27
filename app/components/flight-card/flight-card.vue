@@ -188,7 +188,7 @@ export default {
 			overflow: hidden
 	&__players-head, &__players-items
 		display: flex
-		align-items: baseline
+		align-items: center
 	&__players-head-item, &__players-item
 			width: 150px
 			box-sizing: border-box

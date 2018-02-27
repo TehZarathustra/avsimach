@@ -1,5 +1,5 @@
 <template>
-	<v-toolbar dense fixed flat clipped-left :dark="Boolean(user && user.team)"
+	<v-toolbar dense fixed clipped-left :dark="Boolean(user && user.team)"
 		:color="(user && user.team)"
 		:class="userTeam" app>
 		<v-toolbar-title
