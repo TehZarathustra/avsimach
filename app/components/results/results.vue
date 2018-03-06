@@ -11,7 +11,7 @@
 					<p>{{flight.description}}</p>
 				</div>
 				<div class="results__score">
-					<score></score>
+					<score :players="activeTake.redPlayers"></score>
 				</div>
 			</div>
 			<!-- /red-col end -->
@@ -24,7 +24,7 @@
 					<p>{{flight.description}}</p>
 				</div>
 				<div class="results__score">
-					<score></score>
+					<score :players="activeTake.bluePlayers"></score>
 				</div>
 			</div>
 			<!-- /blue-col end -->

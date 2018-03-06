@@ -9,15 +9,7 @@
 		<div class="score__players">
 			<div class="score__player-row" v-for="player in players">
 				<div class="score__player">
-					<span class="score__avatar">
-						<v-avatar
-						size="30px"
-						class="grey lighten-4"
-						>
-						<img :src="player.avatar" alt="avatar">
-						</v-avatar>
-        	</span>
-					{{player.name}}
+					<mini-profile :player="player" type="text"></mini-profile>
 				</div>
 				<div class="score__player-tanks">1</div>
 				<div class="score__player-planes">3</div>
@@ -38,6 +30,7 @@ import planeImage from './plane.png';
 import navalImage from './boat.png';
 import deathImage from './death.png';
 import Firebase from 'firebase';
+import miniProfile from '../mini-profile/mini-profile.vue';
 
 export default {
 	firebase () {
@@ -52,7 +45,7 @@ export default {
 	},
 	data () {
 		return {
-			playerNames: ['Zarathustra', 'Ein', 'Bubi', 'testUser'],
+			playersRaw: [{name: 'Zarathustra', asset: 'MiG-21'}],
 			tank: tankImage,
 			plane: planeImage,
 			naval: navalImage,
@@ -66,14 +59,18 @@ export default {
 				return null;
 			}
 
-			const players = this.playerNames.map(name => {
-				const player = this.users.find(user => user.name === name);
+			const players = this.playersRaw.map(playerRaw => {
+				let player = this.users.find(user => user.name === playerRaw.name);
+				player.asset = playerRaw.asset;
 
 				return player;
 			});
 
 			return players;
 		}
+	},
+	components: {
+		'mini-profile': miniProfile
 	}
 }
 </script>
