@@ -8,6 +8,10 @@
     ],
     "rewrites": [
       {
+        "source": "/testkek",
+        "function": "app"
+      },
+      {
         "source": "**",
         "destination": "/index.html"
       }

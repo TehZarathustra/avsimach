@@ -34,7 +34,7 @@ npm run start
     {
       name: String, // actual player name
       asset: String, // actual flown asset
-	  },
+    },
     ...
   ],
   bluePlayers: Array // same as above

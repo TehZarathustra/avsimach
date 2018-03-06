@@ -1,0 +1,20 @@
+{
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase serve --only functions",
+    "shell": "firebase experimental:functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "@google-cloud/functions-emulator": "^1.0.0-beta.4",
+    "config": "^1.30.0",
+    "express": "^4.16.3",
+    "firebase-admin": "~5.8.1",
+    "firebase-functions": "^0.8.1",
+    "node-telegram-bot-api": "^0.30.0"
+  },
+  "private": true
+}

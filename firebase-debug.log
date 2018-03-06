@@ -1,0 +1,388 @@
+[debug] [2018-04-29T22:28:00.978Z] ----------------------------------------------------------------------
+[debug] [2018-04-29T22:28:00.982Z] Command:       /Users/v-prusakov/.nvm/versions/node/v4.8.1/bin/node /Users/v-prusakov/.nvm/versions/node/v4.8.1/bin/firebase deploy
+[debug] [2018-04-29T22:28:00.982Z] CLI Version:   3.17.3
+[debug] [2018-04-29T22:28:00.982Z] Platform:      darwin
+[debug] [2018-04-29T22:28:00.982Z] Node Version:  v4.8.1
+[debug] [2018-04-29T22:28:00.983Z] Time:          Mon Apr 30 2018 01:28:00 GMT+0300 (MSK)
+[debug] [2018-04-29T22:28:00.983Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-04-29T22:28:00.996Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-04-29T22:28:00.997Z] > authorizing via signed-in user
+[debug] [2018-04-29T22:28:01.001Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/avsimach  
+  
+ Mon Apr 30 2018 01:28:01 GMT+0300 (MSK)
+[debug] [2018-04-29T22:28:09.032Z] ----------------------------------------------------------------------
+[debug] [2018-04-29T22:28:09.034Z] Command:       /Users/v-prusakov/.nvm/versions/node/v8.11.1/bin/node /Users/v-prusakov/.nvm/versions/node/v8.11.1/bin/firebase deploy
+[debug] [2018-04-29T22:28:09.034Z] CLI Version:   3.18.4
+[debug] [2018-04-29T22:28:09.034Z] Platform:      darwin
+[debug] [2018-04-29T22:28:09.034Z] Node Version:  v8.11.1
+[debug] [2018-04-29T22:28:09.035Z] Time:          Mon Apr 30 2018 01:28:09 GMT+0300 (MSK)
+[debug] [2018-04-29T22:28:09.035Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-04-29T22:28:09.048Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-04-29T22:28:09.048Z] > authorizing via signed-in user
+[debug] [2018-04-29T22:28:09.050Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/avsimach  
+  
+ Mon Apr 30 2018 01:28:09 GMT+0300 (MSK)
+[debug] [2018-04-29T22:28:10.048Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-29T22:28:10.050Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/avsimach/tokens  
+  
+ Mon Apr 30 2018 01:28:10 GMT+0300 (MSK)
+[debug] [2018-04-29T22:28:10.945Z] <<< HTTP RESPONSE 200
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions.
+ Please upgrade using npm install --save firebase-functions@latest in your functions directory.
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade.
+ Go to https://firebase.google.com/docs/functions/beta-v1-diff to learn more.
+[info] 
+[info] === Deploying to 'avsimach'...
+[info] 
+[info] i  deploying functions, hosting
+[debug] [2018-04-29T22:28:14.199Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase serve --only functions",
+    "shell": "firebase experimental:functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "@google-cloud/functions-emulator": "^1.0.0-beta.4",
+    "config": "^1.30.0",
+    "firebase-admin": "~5.8.1",
+    "firebase-functions": "^0.8.1",
+    "node-telegram-bot-api": "^0.30.0"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2018-04-29T22:28:14.200Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/avsimach?view=CONSUMER_VIEW  
+  
+ Mon Apr 30 2018 01:28:14 GMT+0300 (MSK)
+[debug] [2018-04-29T22:28:14.200Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/avsimach?view=CONSUMER_VIEW  
+  
+ Mon Apr 30 2018 01:28:14 GMT+0300 (MSK)
+[debug] [2018-04-29T22:28:15.566Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-29T22:28:15.586Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] [2018-04-29T22:28:15.587Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/avsimach  
+  
+ Mon Apr 30 2018 01:28:15 GMT+0300 (MSK)
+[debug] [2018-04-29T22:28:16.452Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-29T22:28:16.452Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/442287453798:getServerAppConfig  
+  
+ Mon Apr 30 2018 01:28:16 GMT+0300 (MSK)
+[debug] [2018-04-29T22:28:16.887Z] <<< HTTP RESPONSE 200
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2018-04-29T22:28:16.890Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/avsimach/configs  
+  
+ Mon Apr 30 2018 01:28:16 GMT+0300 (MSK)
+[debug] [2018-04-29T22:28:18.021Z] <<< HTTP RESPONSE 200
+[info] i  functions: packaged functions (34.98 KB) for uploading
+[debug] [2018-04-29T22:28:18.673Z] >>> HTTP REQUEST POST https://cloudfunctions.googleapis.com/v1/projects/avsimach/locations/us-central1/functions:generateUploadUrl  
+  
+ Mon Apr 30 2018 01:28:18 GMT+0300 (MSK)
+[debug] [2018-04-29T22:28:19.162Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-29T22:28:19.163Z] >>> HTTP REQUEST PUT https://storage.googleapis.com/gcf-upload-us-central1-fe107c59-82e8-42a4-8203-7186ef1535a5/7c8322ad-f960-4e8b-9ca5-f41fd872b61b.zip?GoogleAccessId=442287453798@cloudservices.gserviceaccount.com&Expires=1525042697&Signature=EVSZ2jh6PhAWAvfRcPLLo8CvgcCfNKUvGgCyI%2BRQw9Z7zqPwNRaWVAFCitFRXXvaDswvntg5AheV1X49Um6Uz%2BVynrIr97DhDM0QRiKphJrQreirFxfbH8OwzOjXmlOx00%2BL%2FnLRZtEgfYrl5Clv8RkeciaJqTaoHfm6n8gSAOny0r%2F%2Bh%2Fc3YH5bEH2gbiGA1DK3bQbENMzxkT416r%2BR7JrOxzGeoCTkTOrYUNe7Luicp9JT%2F88IoHFXEei1wVIt5kNGoyWtMDK9jgd9iHujfPfx1mtvh334TxIuluoSbuXkhVDDYSlgfXfSVdQhqFzr3GmxxVjR5ZcCufOdqWheGQ%3D%3D  
+ ReadStream {
+  _readableState: 
+   ReadableState {
+     objectMode: false,
+     highWaterMark: 65536,
+     buffer: BufferList { head: [Object], tail: [Object], length: 1 },
+     length: 35816,
+     pipes: null,
+     pipesCount: 0,
+     flowing: null,
+     ended: true,
+     endEmitted: false,
+     reading: false,
+     sync: false,
+     needReadable: false,
+     emittedReadable: true,
+     readableListening: false,
+     resumeScheduled: false,
+     destroyed: false,
+     defaultEncoding: 'utf8',
+     awaitDrain: 0,
+     readingMore: false,
+     decoder: null,
+     encoding: null },
+  readable: true,
+  domain: null,
+  _events: { end: [Function] },
+  _eventsCount: 1,
+  _maxListeners: undefined,
+  path: '/var/folders/zy/h7__nm210p7g9txxqhvfv_knzt0x9_/T/firebase-functions-920726pMXBfA8RCfS.zip',
+  fd: 19,
+  flags: 'r',
+  mode: 438,
+  start: 0,
+  end: Infinity,
+  autoClose: true,
+  pos: 131072,
+  bytesRead: 35816 } 
+ Mon Apr 30 2018 01:28:19 GMT+0300 (MSK)
+[debug] [2018-04-29T22:28:19.775Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: functions folder uploaded successfully
+[info] i  hosting: preparing ./dist directory for upload...
+[debug] [2018-04-29T22:28:19.984Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/avsimach/uploads/-LBIWKEUBpn9j1BbATMm?fileCount=16&message=  
+  
+ Mon Apr 30 2018 01:28:19 GMT+0300 (MSK)
+[debug] [2018-04-29T22:29:35.650Z] Error: connect ETIMEDOUT 23.251.151.130:443
+    at Object._errnoException (util.js:1022:11)
+    at _exceptionWithHostPort (util.js:1044:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1198:14)
+[error] 
+[error] Error: Server Error. connect ETIMEDOUT 23.251.151.130:443
+[debug] [2018-04-29T22:33:20.181Z] ----------------------------------------------------------------------
+[debug] [2018-04-29T22:33:20.184Z] Command:       /Users/v-prusakov/.nvm/versions/node/v8.11.1/bin/node /Users/v-prusakov/.nvm/versions/node/v8.11.1/bin/firebase deploy
+[debug] [2018-04-29T22:33:20.184Z] CLI Version:   3.18.4
+[debug] [2018-04-29T22:33:20.184Z] Platform:      darwin
+[debug] [2018-04-29T22:33:20.184Z] Node Version:  v8.11.1
+[debug] [2018-04-29T22:33:20.184Z] Time:          Mon Apr 30 2018 01:33:20 GMT+0300 (MSK)
+[debug] [2018-04-29T22:33:20.184Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-04-29T22:33:20.194Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-04-29T22:33:20.194Z] > authorizing via signed-in user
+[debug] [2018-04-29T22:33:20.196Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/avsimach  
+  
+ Mon Apr 30 2018 01:33:20 GMT+0300 (MSK)
+[debug] [2018-04-29T22:33:21.192Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-29T22:33:21.193Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/avsimach/tokens  
+  
+ Mon Apr 30 2018 01:33:21 GMT+0300 (MSK)
+[debug] [2018-04-29T22:33:21.924Z] <<< HTTP RESPONSE 200
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions.
+ Please upgrade using npm install --save firebase-functions@latest in your functions directory.
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade.
+ Go to https://firebase.google.com/docs/functions/beta-v1-diff to learn more.
+[info] 
+[info] === Deploying to 'avsimach'...
+[info] 
+[info] i  deploying functions, hosting
+[debug] [2018-04-29T22:33:25.132Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase serve --only functions",
+    "shell": "firebase experimental:functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "@google-cloud/functions-emulator": "^1.0.0-beta.4",
+    "config": "^1.30.0",
+    "firebase-admin": "~5.8.1",
+    "firebase-functions": "^0.8.1",
+    "node-telegram-bot-api": "^0.30.0"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2018-04-29T22:33:25.132Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/avsimach?view=CONSUMER_VIEW  
+  
+ Mon Apr 30 2018 01:33:25 GMT+0300 (MSK)
+[debug] [2018-04-29T22:33:25.133Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/avsimach?view=CONSUMER_VIEW  
+  
+ Mon Apr 30 2018 01:33:25 GMT+0300 (MSK)
+[debug] [2018-04-29T22:33:26.555Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-29T22:33:26.603Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] [2018-04-29T22:33:26.604Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/avsimach  
+  
+ Mon Apr 30 2018 01:33:26 GMT+0300 (MSK)
+[debug] [2018-04-29T22:33:27.576Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-29T22:33:27.577Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/442287453798:getServerAppConfig  
+  
+ Mon Apr 30 2018 01:33:27 GMT+0300 (MSK)
+[debug] [2018-04-29T22:33:28.447Z] <<< HTTP RESPONSE 200
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2018-04-29T22:33:28.451Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/avsimach/configs  
+  
+ Mon Apr 30 2018 01:33:28 GMT+0300 (MSK)
+[debug] [2018-04-29T22:33:29.574Z] <<< HTTP RESPONSE 200
+[info] i  functions: packaged functions (34.98 KB) for uploading
+[debug] [2018-04-29T22:33:30.253Z] >>> HTTP REQUEST POST https://cloudfunctions.googleapis.com/v1/projects/avsimach/locations/us-central1/functions:generateUploadUrl  
+  
+ Mon Apr 30 2018 01:33:30 GMT+0300 (MSK)
+[debug] [2018-04-29T22:33:30.742Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-29T22:33:30.743Z] >>> HTTP REQUEST PUT https://storage.googleapis.com/gcf-upload-us-central1-fe107c59-82e8-42a4-8203-7186ef1535a5/96c329b2-67cb-4bdb-ab6e-2393796542fa.zip?GoogleAccessId=442287453798@cloudservices.gserviceaccount.com&Expires=1525043008&Signature=f%2BvTj0oxG0s8mgGaHLVPN6qeziQ8MAtFHGzgtTjmJt%2Bwy%2BtkzZZEOrDpsX7LXHRt6md8r%2BHhhy8qSb4ENZa1YuDwwPYjHwnhTrx%2FNAf%2FDg7dC3zXhqnym4yXcwHqPASMXZFh7C4OLEMVkGgNyMMmkRjprpi505Si3PUt0eosCDRNRB%2BT05KxCMmfP%2B3L3%2B0n1olhM621dv8ewtMZPKvr5MOw4yRrfsMIrZ%2FRHcALdoBqf2pCiQ3pjSl5oSwZvZtOt4iwgK0OhFM5pp1Pn3FJ0%2FfaiLKI0wfHaMckbEyQQaEjk6SQdMtr8FAGxajr7BsMcR5mX2Mrtvi63NNjXnhpFg%3D%3D  
+ ReadStream {
+  _readableState: 
+   ReadableState {
+     objectMode: false,
+     highWaterMark: 65536,
+     buffer: BufferList { head: [Object], tail: [Object], length: 1 },
+     length: 35816,
+     pipes: null,
+     pipesCount: 0,
+     flowing: null,
+     ended: true,
+     endEmitted: false,
+     reading: false,
+     sync: false,
+     needReadable: false,
+     emittedReadable: true,
+     readableListening: false,
+     resumeScheduled: false,
+     destroyed: false,
+     defaultEncoding: 'utf8',
+     awaitDrain: 0,
+     readingMore: false,
+     decoder: null,
+     encoding: null },
+  readable: true,
+  domain: null,
+  _events: { end: [Function] },
+  _eventsCount: 1,
+  _maxListeners: undefined,
+  path: '/var/folders/zy/h7__nm210p7g9txxqhvfv_knzt0x9_/T/firebase-functions-92165D7VnZYa9X7da.zip',
+  fd: 19,
+  flags: 'r',
+  mode: 438,
+  start: 0,
+  end: Infinity,
+  autoClose: true,
+  pos: 131072,
+  bytesRead: 35816 } 
+ Mon Apr 30 2018 01:33:30 GMT+0300 (MSK)
+[debug] [2018-04-29T22:33:31.469Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: functions folder uploaded successfully
+[info] i  hosting: preparing ./dist directory for upload...
+[debug] [2018-04-29T22:33:31.670Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/avsimach/uploads/-LBIXWInMtkGSChFq1gA?fileCount=16&message=  
+  
+ Mon Apr 30 2018 01:33:31 GMT+0300 (MSK)
+[debug] [2018-04-29T22:34:47.483Z] Error: connect ETIMEDOUT 23.251.151.130:443
+    at Object._errnoException (util.js:1022:11)
+    at _exceptionWithHostPort (util.js:1044:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1198:14)
+[error] 
+[error] Error: Server Error. connect ETIMEDOUT 23.251.151.130:443
+[debug] [2018-04-29T22:35:32.127Z] ----------------------------------------------------------------------
+[debug] [2018-04-29T22:35:32.129Z] Command:       /Users/v-prusakov/.nvm/versions/node/v8.11.1/bin/node /Users/v-prusakov/.nvm/versions/node/v8.11.1/bin/firebase deploy
+[debug] [2018-04-29T22:35:32.129Z] CLI Version:   3.18.4
+[debug] [2018-04-29T22:35:32.129Z] Platform:      darwin
+[debug] [2018-04-29T22:35:32.129Z] Node Version:  v8.11.1
+[debug] [2018-04-29T22:35:32.130Z] Time:          Mon Apr 30 2018 01:35:32 GMT+0300 (MSK)
+[debug] [2018-04-29T22:35:32.130Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-04-29T22:35:32.142Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-04-29T22:35:32.143Z] > authorizing via signed-in user
+[debug] [2018-04-29T22:35:32.145Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/avsimach  
+  
+ Mon Apr 30 2018 01:35:32 GMT+0300 (MSK)
+[debug] [2018-04-29T22:35:32.924Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-29T22:35:32.926Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/avsimach/tokens  
+  
+ Mon Apr 30 2018 01:35:32 GMT+0300 (MSK)
+[debug] [2018-04-29T22:35:33.552Z] <<< HTTP RESPONSE 200
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions.
+ Please upgrade using npm install --save firebase-functions@latest in your functions directory.
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade.
+ Go to https://firebase.google.com/docs/functions/beta-v1-diff to learn more.
+[info] 
+[info] === Deploying to 'avsimach'...
+[info] 
+[info] i  deploying functions, hosting
+[debug] [2018-04-29T22:35:36.760Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase serve --only functions",
+    "shell": "firebase experimental:functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "@google-cloud/functions-emulator": "^1.0.0-beta.4",
+    "config": "^1.30.0",
+    "firebase-admin": "~5.8.1",
+    "firebase-functions": "^0.8.1",
+    "node-telegram-bot-api": "^0.30.0"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2018-04-29T22:35:36.760Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/avsimach?view=CONSUMER_VIEW  
+  
+ Mon Apr 30 2018 01:35:36 GMT+0300 (MSK)
+[debug] [2018-04-29T22:35:36.761Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/avsimach?view=CONSUMER_VIEW  
+  
+ Mon Apr 30 2018 01:35:36 GMT+0300 (MSK)
+[debug] [2018-04-29T22:35:38.097Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] [2018-04-29T22:35:38.137Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-29T22:35:38.137Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/avsimach  
+  
+ Mon Apr 30 2018 01:35:38 GMT+0300 (MSK)
+[debug] [2018-04-29T22:35:39.036Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-29T22:35:39.037Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/442287453798:getServerAppConfig  
+  
+ Mon Apr 30 2018 01:35:39 GMT+0300 (MSK)
+[debug] [2018-04-29T22:35:39.678Z] <<< HTTP RESPONSE 200
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2018-04-29T22:35:39.682Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/avsimach/configs  
+  
+ Mon Apr 30 2018 01:35:39 GMT+0300 (MSK)
+[debug] [2018-04-29T22:35:40.801Z] <<< HTTP RESPONSE 200
+[info] i  functions: packaged functions (34.98 KB) for uploading
+[debug] [2018-04-29T22:35:41.453Z] >>> HTTP REQUEST POST https://cloudfunctions.googleapis.com/v1/projects/avsimach/locations/us-central1/functions:generateUploadUrl  
+  
+ Mon Apr 30 2018 01:35:41 GMT+0300 (MSK)
+[debug] [2018-04-29T22:35:41.977Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-29T22:35:41.977Z] >>> HTTP REQUEST PUT https://storage.googleapis.com/gcf-upload-us-central1-fe107c59-82e8-42a4-8203-7186ef1535a5/ec625819-3b1c-47c7-b556-08d823a5b605.zip?GoogleAccessId=442287453798@cloudservices.gserviceaccount.com&Expires=1525043140&Signature=SLxVd2kxAuyD%2FNpi8bc6MZ%2FqteTDcwHEpAuBCIA%2FPIfKzbRzyeGpOEgQplOlsn3WLbslkS4U6tsElEPvLCVg9Uzb%2B%2Bu1dwyEPwZx%2BTxGbncF2cxpTQx81QhK%2FFGCyuqX%2Bhn1pjgi3s3tXZS3M4OXkJftzfkYgEUvksje6zNQm9vAfSM2o%2F5IMstpml4g59fJfpf1GSsqejxJO34bgV04ZR%2B5aU%2BGK4WhG0tKbcK5jq7BbJmBXJujQCBoQjYvIGgkXCpd0mCchrynDXpLx3TJffSoH3QsVppBbhOpyidGJKRrCoDHjT%2Bo8FB6OEXqWUbSbJK4r6qr1snplZbetwNRiA%3D%3D  
+ ReadStream {
+  _readableState: 
+   ReadableState {
+     objectMode: false,
+     highWaterMark: 65536,
+     buffer: BufferList { head: [Object], tail: [Object], length: 1 },
+     length: 35816,
+     pipes: null,
+     pipesCount: 0,
+     flowing: null,
+     ended: true,
+     endEmitted: false,
+     reading: false,
+     sync: false,
+     needReadable: false,
+     emittedReadable: true,
+     readableListening: false,
+     resumeScheduled: false,
+     destroyed: false,
+     defaultEncoding: 'utf8',
+     awaitDrain: 0,
+     readingMore: false,
+     decoder: null,
+     encoding: null },
+  readable: true,
+  domain: null,
+  _events: { end: [Function] },
+  _eventsCount: 1,
+  _maxListeners: undefined,
+  path: '/var/folders/zy/h7__nm210p7g9txxqhvfv_knzt0x9_/T/firebase-functions-922299higNYBIc1MT.zip',
+  fd: 19,
+  flags: 'r',
+  mode: 438,
+  start: 0,
+  end: Infinity,
+  autoClose: true,
+  pos: 131072,
+  bytesRead: 35816 } 
+ Mon Apr 30 2018 01:35:41 GMT+0300 (MSK)
+[debug] [2018-04-29T22:35:42.644Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: functions folder uploaded successfully
+[info] i  hosting: preparing ./dist directory for upload...
+[debug] [2018-04-29T22:35:42.857Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/avsimach/uploads/-LBIY0LJvOJ0ByMth9Zn?fileCount=16&message=  
+  
+ Mon Apr 30 2018 01:35:42 GMT+0300 (MSK)
+[debug] [2018-04-29T22:36:58.407Z] Error: connect ETIMEDOUT 23.251.151.130:443
+    at Object._errnoException (util.js:1022:11)
+    at _exceptionWithHostPort (util.js:1044:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1198:14)
+[error] 
+[error] Error: Server Error. connect ETIMEDOUT 23.251.151.130:443

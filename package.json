@@ -27,16 +27,17 @@
     "webpack-dev-server": "^2.5.0"
   },
   "dependencies": {
-    "lodash": "^4.17.4",
-    "normalize.css": "^7.0.0",
-    "moment": "^2.19.2",
+    "axios": "^0.18.0",
     "firebase": "^4.2.0",
+    "font-awesome": "^4.7.0",
+    "lodash": "^4.17.4",
+    "moment": "^2.19.2",
+    "normalize.css": "^7.0.0",
     "vue": "^2.4.1",
-    "vue-template-compiler": "^2.4.1",
     "vue-router": "^2.7.0",
+    "vue-template-compiler": "^2.4.1",
     "vuefire": "^1.4.3",
     "vuetify": "^0.17.6",
-    "font-awesome": "^4.7.0",
     "vuex": "^3.0.1"
   }
 }
