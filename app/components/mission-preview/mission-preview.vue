@@ -1,5 +1,5 @@
 <template>
-	<div class="mission-preview">
+	<div class="mission-preview" :style="{backgroundImage: `url(${image})`}">
 		<div class="mission-preview__description-wrapper">
 			<div class="mission-preview__date">{{date}}</div>
 			<div class="mission-preview__campaign">{{campaign}}</div>
@@ -27,7 +27,8 @@ export default {
 			length: this.mission.timeLength,
 			description: this.mission.description,
 			redCard: this.mission.redPreview,
-			blueCard: this.mission.bluePreview
+			blueCard: this.mission.bluePreview,
+			image: this.mission.image
 		}
 	},
 	computed: {
@@ -47,9 +48,8 @@ export default {
 	max-width: 850px
 	width: 100%
 	margin: 0 auto
-	background-image: url('https://i.imgur.com/7ukd9wC.png')
 	background-size: 50%
-	background-position: 100% 0
+	background-position: 100% 10%
 	&__date
 		font-size: 44px
 		font-weight: 800

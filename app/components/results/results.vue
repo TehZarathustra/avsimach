@@ -74,6 +74,7 @@ export default {
 	margin: 0 auto
 	background: #ECECEC
 	padding: 30px 60px
+	box-sizing: border-box
 	&__description
 		font-size: 24px
 	&__sides
