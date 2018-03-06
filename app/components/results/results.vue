@@ -11,7 +11,11 @@
 					<p>{{flight.description}}</p>
 				</div>
 				<div class="results__score">
-					<score :players="activeTake.redPlayers"></score>
+					<score
+						:players="activeTake.redPlayers"
+						:path="activeTake.campaign_mission_take"
+						v-if="activeTake.redPlayers">
+					</score>
 				</div>
 			</div>
 			<!-- /red-col end -->
@@ -24,7 +28,11 @@
 					<p>{{flight.description}}</p>
 				</div>
 				<div class="results__score">
-					<score :players="activeTake.bluePlayers"></score>
+					<score
+						:players="activeTake.bluePlayers"
+						:path="activeTake.campaign_mission_take"
+						v-if="activeTake.bluePlayers">
+					</score>
 				</div>
 			</div>
 			<!-- /blue-col end -->

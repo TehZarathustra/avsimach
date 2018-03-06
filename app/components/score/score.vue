@@ -1,20 +1,20 @@
 <template>
-	<div class="score" v-if="usersLoaded">
+	<div class="score" v-if="usersLoaded && players">
 		<div class="score__headings">
-			<div class="score__tanks"><img :src="tank" alt="land"></div>
-			<div class="score__planes"><img :src="plane" alt="air"></div>
+			<div class="score__tanks"><img :src="plane" alt="land"></div>
+			<div class="score__planes"><img :src="tank" alt="air"></div>
 			<div class="score__naval"><img :src="naval" alt="naval"></div>
 			<div class="score__deaths"><img :src="death" alt="deaths"></div>
 		</div>
 		<div class="score__players">
-			<div class="score__player-row" v-for="player in players">
+			<div class="score__player-row" v-for="player in playersData">
 				<div class="score__player">
 					<mini-profile :player="player" type="text"></mini-profile>
 				</div>
-				<div class="score__player-tanks">1</div>
-				<div class="score__player-planes">3</div>
-				<div class="score__player-naval">0</div>
-				<div class="score__player-deaths">4</div>
+				<div class="score__player-planes">{{player.airKills}}</div>
+				<div class="score__player-tanks">{{player.groundKills}}</div>
+				<div class="score__player-naval">{{player.navalKills}}</div>
+				<div class="score__player-deaths">{{player.deaths}}</div>
 			</div>
 		</div>
 	</div>
@@ -40,28 +40,55 @@ export default {
 				readyCallback: function () {
 					this.usersLoaded = true;
 				}
+			},
+			kills: {
+				source: Firebase.database().ref('kills'),
+				readyCallback: function () {
+					this.killsLoaded = true;
+				}
+			},
+			deaths: {
+				source: Firebase.database().ref('deaths'),
+				readyCallback: function () {
+					this.deathsLoaded = true;
+				}
 			}
 		}
 	},
 	data () {
 		return {
-			playersRaw: [{name: 'Zarathustra', asset: 'MiG-21'}],
 			tank: tankImage,
 			plane: planeImage,
 			naval: navalImage,
 			death: deathImage,
-			usersLoaded: false
+			usersLoaded: false,
+			killsLoaded: false,
+			deathsLoaded: false
 		}
 	},
+	props: ['players', 'path'],
 	computed: {
-		players () {
-			if (!this.usersLoaded) {
+		playersData () {
+			if (!this.usersLoaded
+					|| !this.players
+					|| !this.kills) {
 				return null;
 			}
 
-			const players = this.playersRaw.map(playerRaw => {
-				let player = this.users.find(user => user.name === playerRaw.name);
+			const players = this.players.map(playerRaw => {
+				const playerName = playerRaw.name;
+				const playerKills = this.kills.filter(kill => kill.name === playerName
+					&& kill.campaign_mission_take === this.path);
+				const playerDeaths = this.deaths.filter(kill => kill.name === playerName
+					&& kill.campaign_mission_take === this.path);
+
+				let player = this.users.find(user => user.name === playerName);
+
 				player.asset = playerRaw.asset;
+				player.airKills = playerKills.filter(kill => kill.type === 'air').length;
+				player.groundKills = playerKills.filter(kill => kill.type === 'land').length;
+				player.navalKills = playerKills.filter(kill => kill.type === 'naval').length;
+				player.deaths = playerDeaths.length;
 
 				return player;
 			});
