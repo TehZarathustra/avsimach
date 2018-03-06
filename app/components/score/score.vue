@@ -1,8 +1,8 @@
 <template>
 	<div class="score" v-if="usersLoaded && players">
 		<div class="score__headings">
-			<div class="score__tanks"><img :src="plane" alt="land"></div>
-			<div class="score__planes"><img :src="tank" alt="air"></div>
+			<div class="score__planes"><img :src="plane" alt="air"></div>
+			<div class="score__tanks"><img :src="tank" alt="land"></div>
 			<div class="score__naval"><img :src="naval" alt="naval"></div>
 			<div class="score__deaths"><img :src="death" alt="deaths"></div>
 		</div>
