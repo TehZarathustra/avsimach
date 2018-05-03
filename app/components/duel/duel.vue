@@ -1,13 +1,16 @@
 <template>
 	<div class="duel">
-		<h1>Duel</h1>
-		<v-btn @click="sendKek()" block>kek</v-btn>
+		<div class="duel__players">
+			<h1>В раздевалке</h1>
+			<players></players>
+		</div>
 	</div>
 </template>
 
 <script>
 import Firebase from 'firebase';
 import Axios from 'axios';
+import Players from './__players/players.vue';
 
 export default {
 	firebase ()  {
@@ -27,14 +30,27 @@ export default {
 	},
 	methods: {
 		sendKek() {
-			Axios.get('/testkek')
-				.then(function (response) {
-					console.log('response >>>', response);
+			Axios.get('https://avsimach-bot.herokuapp.com/testkek', {
+				headers: {
+					'Access-Control-Allow-Origin': '*',
+				}
+			}).then(function (response) {
+
 				})
 				.catch(function (error) {
-					console.log('error >>>', error);
+					this.$store.commit('setAlert', {type: 'error', message: 'Начальник устал, напиши одмену'});
 				});
 		}
+	},
+	components: {
+		'players': Players
 	}
 }
 </script>
+
+<style scoped lang="sass">
+.duel
+	max-width: 850px
+	width: 100%
+	margin: 0 auto
+</style>
