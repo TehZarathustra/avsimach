@@ -68,7 +68,7 @@ npm run start
 {
   status: String, // pending, accepted, finished
   winnerName: String, // actual player name
-	winnerPlayer: String, // firstPlayer, secondPlayer
+  winnerPlayer: String, // firstPlayer, secondPlayer
   firstPlayer: String, // challenger player name
   secondPlayer: String, // challanged player name
   firstPlayerAsset: String, // actual asset name
