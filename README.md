@@ -66,11 +66,11 @@ npm run start
 ### challenges
 ```
 {
-	status: String, // pending, accepted, finished
-	winner: String, // actual player name
-	firstPlayer: String, // challenger player name
-	secondPlayer: String, // challanged player name
-	firstPlayerAsset: String, // actual asset name
-	secondPlayerAsset: String, // actual asset name
-	roundsDiff: String // i.e. 1-3
+  status: String, // pending, accepted, finished
+  winner: String, // firstPlayer, secondPlayer
+  firstPlayer: String, // challenger player name
+  secondPlayer: String, // challanged player name
+  firstPlayerAsset: String, // actual asset name
+  secondPlayerAsset: String, // actual asset name
+  roundsDiff: String // i.e. 1-3
 }
